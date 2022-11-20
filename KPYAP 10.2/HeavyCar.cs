@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KPYAP_10._2
 {
-    internal class HeavyCar : Car
+    internal class HeavyCar : Car, IComparable, IComparer<HeavyCar>,
     {
         public int upPower;
         public int UpPower 
@@ -41,14 +41,14 @@ namespace KPYAP_10._2
         {
             return "Марка = " + name + "\nКол-во цилиндров = " + cil + "\nМощность = " + power+ "\nГрузоподъемность кузова = "+upPower;
         }
-        public new int CompareTo(object obj)
+        public int CompareTo(object obj)
         {
             HeavyCar temp = (HeavyCar)obj;
             return Math.Sign(this.UpPower - temp.UpPower);
         }
         public int Compare(HeavyCar p1, HeavyCar p2)
         {
-            return p1.Cil - p2.Cil;
+            return p1.UpPower - p2.UpPower;
         }
         public new object Clone()
         {
@@ -68,9 +68,8 @@ namespace KPYAP_10._2
         }
         public new object Create()
         {
-            Random random = new Random();
             string[] name = { "Audi", "Acura", "Alfa Romeo", "Aston Martin", "Bentley", "BMW", "Toyota" };
-            HeavyCar car = new HeavyCar(name[random.Next(0, 7)], random.Next(1, 21), random.Next(1, 1000), random.Next(1, 10));
+            HeavyCar car = new HeavyCar(name[ran.Next(0, 7)], ran.Next(1, 21), ran.Next(1, 1000), ran.Next(1, 10));
             return car;
         }
         public new HeavyCar[] RandomCar()

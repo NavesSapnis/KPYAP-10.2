@@ -55,11 +55,8 @@ namespace KPYAP_10._2
                             break;
                         case 6:
                             Console.Clear();
-                            //cars = temp.RandomCar();
-                            //heavyCars = tempHeavy.RandomCar();
-                            test1 = (Car)test1.Create();
-                            test2 = (Car)test2.Create();
-                            Console.WriteLine(test1+"\n"+test2);
+                            cars = temp.RandomCar();
+                            heavyCars = tempHeavy.RandomCar();
                             Console.WriteLine("Создано !");
                             break;
                         case 7:
@@ -69,10 +66,11 @@ namespace KPYAP_10._2
                                 case 1:
                                     Console.Clear();
                                     Array.Sort(cars);//Сортировка по мощности
+                                    //Array.Sort(cars , new Car()); // Сортировка по кол-ву цилиндров
                                     break;
                                 case 2:
                                     Console.Clear();
-                                    Array.Sort(heavyCars, new HeavyCar());//Сортировка больших машин по грузоподъмности
+                                    Array.Sort(heavyCars);//Сортировка больших машин по грузоподъмности
                                     break;
                             }
                             break;

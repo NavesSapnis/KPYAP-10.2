@@ -8,10 +8,11 @@ namespace KPYAP_10._2
 {
     internal class Car : IComparable, IComparer<Car>, ICloneable, IInput,ICreate
     {
-
+        protected static Random ran = new Random();
         protected string name;
         protected int cil;
         protected int power;
+
         public string Name
         {
             get { return name; }
@@ -58,14 +59,8 @@ namespace KPYAP_10._2
         {
             return "Марка = " + name + "\nКол-во цилиндров = " + cil + "\nМощность = " + power;
         }
-        public int CompareTo(object obj)
-        {
-            Car temp = (Car)obj;
-            return Math.Sign(this.Power - temp.Power);//vor next sorting by "Кол-во лош. сил"
-        }
         public object Create()
         {
-            Random ran = new Random();
             string[] name = { "Audi", "Acura", "Alfa Romeo", "Aston Martin", "Bentley", "BMW", "Toyota" };
             Car car = new Car(name[ran.Next(0, 7)], ran.Next(1, 21), ran.Next(1, 1000));
             return car;
@@ -80,6 +75,12 @@ namespace KPYAP_10._2
             }
             return cars;
         }
+        public int CompareTo(object obj)
+        {
+            Car temp = (Car)obj;
+            return Math.Sign(this.Power - temp.Power);//vor next sorting by "Кол-во лош. сил"
+        }
+
         public int Compare(Car p1, Car p2)
         {
             return p1.Cil - p2.Cil;//vor next sorting by "Кол-во цилиндров"
