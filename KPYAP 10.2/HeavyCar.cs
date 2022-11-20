@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KPYAP_10._2
 {
-    internal class HeavyCar : Car, IComparable, IComparer<HeavyCar>,
+    internal class HeavyCar : Car, IComparable, IComparer<HeavyCar>
     {
         public int upPower;
         public int UpPower 
